@@ -1,0 +1,40 @@
+hr {
+  width: 101%;
+  margin-left: -10px;
+}
+
+.footermenu {
+  background-color: rgba(128, 128, 128, 0.308);
+  width: 100.9%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-top: -10px;
+  margin-left: -9px;
+}
+
+.footertext {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.footertext2 {
+  font-size: 20px;
+  color: gray;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.logocontainer {
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.snslogo {
+  width: 160px;
+  margin-top: 5px;
+}
+
+.mytext {
+  margin-left: 20px;
+}

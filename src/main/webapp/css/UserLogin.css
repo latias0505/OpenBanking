@@ -1,0 +1,90 @@
+.logincontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 101%;
+  background-color: rgba(128, 128, 128, 0.212);
+  margin-top: 40px;
+  margin-left: -7px;
+  margin-bottom: -8px;
+}
+
+.loginbox {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 -3px 3px 0 rgba(0, 0, 0, 0.2),
+    3px 0 3px 0 rgba(0, 0, 0, 0.2), -3px 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.idbox {
+  width: 300px;
+  height: 35px;
+  border-radius: 5px;
+  border: 2px solid rgba(128, 128, 128, 0.678);
+}
+
+.pwbox {
+  width: 300px;
+  height: 35px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 2px solid rgba(128, 128, 128, 0.678);
+}
+
+.loginbutton1 {
+  height: 94px;
+  width: 94px;
+  margin-top: -94px;
+  border-radius: 5px;
+  border: none;
+  float: right;
+  background-color: rgb(121, 136, 223);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.loginbox2 div {
+  width: 400px;
+}
+
+.loginbox2 {
+  width: 430px;
+  margin-top: 50px;
+  height: 95px;
+}
+
+.loginbox2-text {
+  margin-top: 10px;
+}
+
+.loginbox2-text a {
+  text-decoration: none;
+  color: black;
+}
+
+.kakaologin {
+  border: none;
+  background-color: rgb(241, 196, 15);
+  border-radius: 5px;
+  width: 430px;
+  height: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.kakakologin-container {
+  position: relative;
+}
+
+.kakaologo {
+  position: absolute;
+  top: 29px;
+  width: 45px;
+  margin-left: 80px;
+}
