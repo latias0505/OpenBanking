@@ -24,6 +24,7 @@ public class UserLoginController implements Controller {
             // 아이디와 비밀번호가 일치할 경우 세션에 아이디를 저장합니다.
             HttpSession session = request.getSession();
             session.setAttribute("userName", user.getName());
+            session.setAttribute("userAdmin", user.getAdmin());
             
             return "Main.jsp"; // Main.jsp로 이동합니다.
         } else {

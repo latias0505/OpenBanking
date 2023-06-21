@@ -26,12 +26,12 @@ public class SignUpController implements Controller {
         String address2 = request.getParameter("address2");
 
         // 주민등록번호 앞자리와 뒷자리를 합쳐서 usercode에 저장합니다.
-        String usercode = usercode1 + usercode2;
+        String usercode = usercode1 + "-" + usercode2;
 
         // 이메일을 조합하여 email에 저장합니다.
         String email = email1 + "@" + email2;
         
-        String address = address1 + address2;
+        String address = address1 + ":" + address2;
 
         // UserVO 객체에 회원 정보를 저장합니다.
         UserVO user = new UserVO();

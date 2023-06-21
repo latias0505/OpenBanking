@@ -1,0 +1,20 @@
+.productcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: -250px;
+}
+
+.table-container {
+  margin-top: 20px; /* h1과의 간격을 조정하려면 필요한 값으로 변경하세요 */
+}
+
+.productlist {
+  border: 1px solid black;
+}
+
+.producttitle {
+  background-color: rgba(128, 128, 128, 0.294);
+}

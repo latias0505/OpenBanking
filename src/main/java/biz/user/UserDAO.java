@@ -12,6 +12,59 @@ public class UserDAO {
     private PreparedStatement stmt;
     private ResultSet rs;
     
+    public void updateUser(UserVO user) {
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "UPDATE USERS SET ID = ?, PASSWORD = ?, PHONE = ?, EMAIL = ?, ADDRESS = ?, POSTCODE = ? WHERE NAME = ?";
+
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, user.getId());
+            stmt.setString(2, user.getPass());
+            stmt.setString(3, user.getPhone());
+            stmt.setString(4, user.getEmail());
+            stmt.setString(5, user.getAddress());
+            stmt.setString(6, user.getPostcode());
+            stmt.setString(7, user.getName());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(stmt, conn);
+        }
+    }
+    
+    public UserVO getUserByName(String name) {
+        UserVO user = null;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM USERS WHERE NAME = ?";
+
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, name);
+
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                user = new UserVO();
+                user.setId(rs.getString("ID"));
+                user.setPass(rs.getString("PASSWORD"));
+                user.setName(rs.getString("NAME"));
+                user.setUsercode(rs.getString("USERCODE"));
+                user.setEmail(rs.getString("EMAIL"));
+                user.setPhone(rs.getString("PHONE"));
+                user.setPostcode(rs.getString("POSTCODE"));
+                user.setAddress(rs.getString("ADDRESS"));
+                user.setUserdate(rs.getDate("USERDATE").toLocalDate());
+                user.setAdmin(rs.getString("USER_TYPE"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(rs, stmt, conn);
+        }
+        return user;
+    }
+    
     // 아이디로 사용자 정보 가져오기
     public UserVO getUserById(String id) {
         UserVO user = null;
@@ -26,15 +79,15 @@ public class UserDAO {
             if (rs.next()) {
                 user = new UserVO();
                 user.setId(rs.getString("ID"));
-                user.setPass(rs.getString("PASS"));
+                user.setPass(rs.getString("PASSWORD"));
                 user.setName(rs.getString("NAME"));
                 user.setUsercode(rs.getString("USERCODE"));
                 user.setEmail(rs.getString("EMAIL"));
                 user.setPhone(rs.getString("PHONE"));
                 user.setPostcode(rs.getString("POSTCODE"));
-                user.setAddress(rs.getString("ADRESS"));
+                user.setAddress(rs.getString("ADDRESS"));
                 user.setUserdate(rs.getDate("USERDATE").toLocalDate());
-                user.setAdmin(rs.getString("ADMIN"));
+                user.setAdmin(rs.getString("USER_TYPE"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,7 +100,7 @@ public class UserDAO {
     public void insertUser(UserVO user) {
         try {
             conn = JDBCUtil.getConnection();
-            String sql = "INSERT INTO USERS(id, pass, name, usercode, email, phone, postcode, adress, userdate, admin) " +
+            String sql = "INSERT INTO USERS(id, password, name, usercode, email, phone, postcode, address, userdate, user_type) " +
                     "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             stmt = conn.prepareStatement(sql);

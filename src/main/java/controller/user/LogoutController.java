@@ -13,6 +13,7 @@ public class LogoutController implements Controller {
 		// 세션에서 userName 값을 삭제
 		HttpSession session = request.getSession();
 		session.removeAttribute("userName");
+		session.removeAttribute("userAdmin");
 		
 		return "Main.jsp";
 	}

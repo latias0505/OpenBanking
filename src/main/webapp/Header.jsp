@@ -25,11 +25,23 @@ pageEncoding="UTF-8"%>
       } %> /> <img src="img/login.png" alt="loginlogo" class="loginlogo" <% if
       (session.getAttribute("userName") != null) { %> style="display: none;" <%
       } %> />
-      <ul class="menu">
-        <li>개인</li>
-        <li>마이페이지</li>
-        <li>은행 게시판</li>
-      </ul>
+	   <ul class="menu" <% if (session.getAttribute("userName") != null) { %> style="margin-left: -18px;" <% } %>>
+		<li>
+		  <% if (session.getAttribute("userAdmin") != null && session.getAttribute("userAdmin").equals("admin")) { %>
+		    <a class="bankItembutton" href="productlistgo.do">상품 관리</a>
+		  <% } else { %>
+		    <a onmouseover="showItemText()" onmouseout="hideItemText()" class="bankItembutton">개인</a>
+		  <% } %>
+		</li>
+		<li>
+			<% if (session.getAttribute("userAdmin") != null && session.getAttribute("userAdmin").equals("admin")) { %>
+			<a>회원 관리</a>
+			<% } else { %>
+			<a href="mypage.do">마이페이지</a>
+			 <% } %>
+		</li>
+		<li><a href="boardgo.do">은행 게시판</a></li>
+	   </ul>
     </div>
     <% String userName = (String) session.getAttribute("userName"); %> <% if
     (session.getAttribute("userName") != null) { %>
@@ -51,6 +63,11 @@ pageEncoding="UTF-8"%>
       <a href="userlogingo.do">개인</a>
       <a>ㅣ</a>
       <a href="adminlogingo.do">관리자</a>
+    </div>
+    <div id="bankItem" style="visibility: hidden" >
+      <a href="userlogingo.do">&nbsp;계좌</a>
+      <a>ㅣ</a>
+      <a href="adminlogingo.do">상품</a>
     </div>
   </body>
 </html>

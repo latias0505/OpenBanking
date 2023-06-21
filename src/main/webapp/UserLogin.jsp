@@ -6,7 +6,6 @@
     <%@ include file="Header.jsp" %>
     <title>여기에 제목 입력</title>
     <link rel="stylesheet" type="text/css" href="css/UserLogin.css" />
-    <%= request.getAttribute("script") %>
   </head>
   <body>
     <div class="logincontainer">

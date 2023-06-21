@@ -14,7 +14,7 @@ pageEncoding="UTF-8"%>
     </script>
   </head>
   <body>
-    <form action="signup.do" method="post" class="signupform">
+    <form action="datachange.do" method="post" class="signupform">
       <table>
         <tr>
           <td>
@@ -27,6 +27,7 @@ pageEncoding="UTF-8"%>
                 id="name"
                 class="namebox"
                 placeholder="  이름"
+                value="${user.name}" readonly 
               />
             </div>
           </td>
@@ -41,11 +42,7 @@ pageEncoding="UTF-8"%>
                 name="id"
                 class="idbox"
                 placeholder="  아이디"
-              />
-              <input
-                type="button"
-                value="중복확인"
-                onclick="checkDuplicateId()"
+                value="${user.id}" readonly 
               />
             </div>
           </td>
@@ -91,18 +88,19 @@ pageEncoding="UTF-8"%>
             <div class="signupmenu">
               <a class="signuplabel">주민등록 번호</a>
               <input
-                type="text"
-                name="usercode1"
-                class="usercode1"
-                placeholder="  주민번호 앞자리"
-              />
+				    type="text"
+				    name="usercode1"
+				    class="usercode1"
+				    placeholder="  주민번호"
+				    value="${user.usercode.split('-')[0]}" readonly
+				/>
               <input
                 type="password"
                 name="usercode2"
                 class="usercode2"
                 placeholder="  주민번호 뒷자리"
+                value="${user.usercode.split('-')[1]}" readonly
               />
-              <input type="button" value="중복확인" />
             </div>
           </td>
         </tr>
@@ -117,8 +115,8 @@ pageEncoding="UTF-8"%>
                 name="phone"
                 class="phonebox"
                 placeholder="  휴대폰 번호"
+                value="${user.name}"
               />
-              <input type="button" value="중복확인" />
             </div>
           </td>
         </tr>
@@ -135,6 +133,7 @@ pageEncoding="UTF-8"%>
                 name="email1"
                 class="emailbox1"
                 placeholder="  이메일"
+                value="${user.email.split('@')[0]}" 
               />
               <a>@</a>
               <input
@@ -142,8 +141,8 @@ pageEncoding="UTF-8"%>
                 name="email2"
                 class="emailbox2"
                 placeholder="  직접 입력"
+                value="${user.email.split('@')[1]}"
               />
-              
               <select id="email-domain" class="emailbox3" onchange="setEmailOption(this)">
                 <option value="">이메일 선택</option>
                 <option value="naver.com">naver.com</option>
@@ -157,7 +156,6 @@ pageEncoding="UTF-8"%>
 				    emailBox2.value = selectedOption;
 				  }
 				</script>
-              <input type="button" value="중복확인" />
             </div>
           </td>
         </tr>
@@ -177,6 +175,7 @@ pageEncoding="UTF-8"%>
                 id="sample6_postcode"
                 placeholder="우편번호"
                 name="postcode"
+                value="${user.postcode}"
               />
               <input
                 type="button"
@@ -195,6 +194,7 @@ pageEncoding="UTF-8"%>
                   id="sample6_address"
                   placeholder="주소"
                   name="address1"
+                  value="${user.address.split(':')[0]}" 
                 />
                 <br />
                 <input
@@ -202,6 +202,7 @@ pageEncoding="UTF-8"%>
                   id="sample6_detailAddress"
                   placeholder="상세주소"
                   name="address2"
+                  value="${user.address.split(':')[1]}"
                 />
                 <input
                   type="text"
@@ -284,7 +285,7 @@ pageEncoding="UTF-8"%>
               <input
                 type="submit"
                 name="회원가입"
-                value="회원가입"
+                value="정보수정"
                 class="signupbutton2"
                 onclick="goSignUp()"
               />
