@@ -6,6 +6,12 @@
     <%@ include file="Header.jsp" %>
     <title>여기에 제목 입력</title>
     <link rel="stylesheet" type="text/css" href="css/UserLogin.css" />
+    <script>
+      <% String errorMessage = (String) request.getAttribute("errorMessage");
+      if (errorMessage != null && !errorMessage.isEmpty()) { %>
+        alert("<%= errorMessage %>");
+      <% } %>
+    </script>
   </head>
   <body>
     <div class="logincontainer">

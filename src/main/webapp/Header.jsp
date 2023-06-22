@@ -11,16 +11,15 @@ pageEncoding="UTF-8"%>
   <body>
     <div class="container">
       <img src="img/logo.png" alt="logo" class="logo" />
-      <a class="logotitle">밤하늘 은행</a>
+      <a class="logotitle" href="main.do">밤하늘 은행</a>
 
       <form action="logout.do">
         <input type="submit" value="로그아웃" class="loginbutton"
         onmouseout="hideLoginText()" <% if (session.getAttribute("userName") ==
         null) { %> style="display: none;" <% } %> />
       </form>
-
-      <input type="button" value="   로그인" class="loginbutton"
-      onmouseover="showLoginText()" onmouseout="hideLoginText()" <% if
+      <input type="button" value="   로그인" class="loginbutton" onclick="location.href='userlogingo.do'"
+      <% if
       (session.getAttribute("userName") != null) { %> style="display: none;" <%
       } %> /> <img src="img/login.png" alt="loginlogo" class="loginlogo" <% if
       (session.getAttribute("userName") != null) { %> style="display: none;" <%
@@ -57,17 +56,10 @@ pageEncoding="UTF-8"%>
       <%= userName %>님 접속 중
     </a>
     <% } %>
-    <input type="text" class="searchbox" />
-    <img src="img/serchicon.png" alt="searchicon" class="searchicon" />
-    <div id="loginText" style="visibility: hidden">
-      <a href="userlogingo.do">개인</a>
-      <a>ㅣ</a>
-      <a href="adminlogingo.do">관리자</a>
-    </div>
     <div id="bankItem" style="visibility: hidden" >
-      <a href="userlogingo.do">&nbsp;계좌</a>
+      <a href="   ?  ">&nbsp;계좌</a>
       <a>ㅣ</a>
-      <a href="adminlogingo.do">상품</a>
+      <a href="productlistgo.do">상품</a>
     </div>
   </body>
 </html>

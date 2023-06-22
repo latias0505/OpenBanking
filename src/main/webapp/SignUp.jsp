@@ -11,10 +11,37 @@ pageEncoding="UTF-8"%>
       function goBack() {
         window.location.href = "main.do";
       }
+      
+      function goSignUp(event) {
+    	  var inputs = document.getElementsByTagName("input");
+    	  var isFormValid = true;
+    	  var firstInvalidInput = null;
+
+    	  // Check if all input fields are filled
+    	  for (var i = 0; i < inputs.length; i++) {
+    	    var input = inputs[i];
+    	    if (input.value === "") {
+    	      isFormValid = false;
+    	      if (!firstInvalidInput) {
+    	        firstInvalidInput = input;
+    	      }
+    	    }
+    	  }
+
+    	  if (isFormValid) {
+    	    document.getElementById("signupForm").submit();
+    	  } else {
+    	    alert("모든 항목을 입력해주세요.");
+    	    if (firstInvalidInput) {
+    	      firstInvalidInput.focus();
+    	    }
+    	    event.preventDefault(); // 폼 제출 기본 동작 막기
+    	  }
+    	}
     </script>
   </head>
   <body>
-    <form action="signup.do" method="post" class="signupform">
+    <form id="signupForm" action="signup.do" method="post" class="signupform">
       <table>
         <tr>
           <td>
@@ -286,7 +313,7 @@ pageEncoding="UTF-8"%>
                 name="회원가입"
                 value="회원가입"
                 class="signupbutton2"
-                onclick="goSignUp()"
+                 onclick="goSignUp(event)"
               />
             </div>
           </td>

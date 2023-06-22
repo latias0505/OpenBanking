@@ -3,9 +3,13 @@ package controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import controller.bank.ProductDeleteController;
+import controller.bank.ProductInfoController;
 import controller.bank.ProductListGoController;
+import controller.bank.ProductMakeGoController;
+import controller.bank.ProductSaveController;
+import controller.bank.UpdateProductController;
 import controller.board.BoardGoController;
-import controller.user.AdminLoginGoController;
 import controller.user.DataChangeController;
 import controller.user.LogoutController;
 import controller.user.MainController;
@@ -22,7 +26,6 @@ public class HandlerMapping {
 		mappings = new HashMap<String, Controller>();
 		mappings.put("/main.do", new MainController());
 		mappings.put("/userlogingo.do", new UserLoginGoController());
-		mappings.put("/adminlogingo.do", new AdminLoginGoController());
 		mappings.put("/signupgo.do", new SignUpGoController());
 		mappings.put("/signup.do", new SignUpController());
 		mappings.put("/userlogin.do", new UserLoginController());
@@ -31,6 +34,11 @@ public class HandlerMapping {
 		mappings.put("/datachange.do", new DataChangeController());
 		mappings.put("/productlistgo.do", new ProductListGoController());
 		mappings.put("/boardgo.do", new BoardGoController());
+		mappings.put("/productsave.do", new ProductSaveController());
+		mappings.put("/productmakego.do", new ProductMakeGoController());
+		mappings.put("/productinfo.do", new ProductInfoController());
+		mappings.put("/updateproduct.do", new UpdateProductController());
+		mappings.put("/productdelete.do", new ProductDeleteController());
 	}
 	public Controller getController(String path) {
 		return mappings.get(path); 

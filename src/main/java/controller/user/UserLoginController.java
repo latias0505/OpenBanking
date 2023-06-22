@@ -29,9 +29,8 @@ public class UserLoginController implements Controller {
             return "Main.jsp"; // Main.jsp로 이동합니다.
         } else {
             // 일치하지 않을 경우 JavaScript 경고창을 표시합니다.
-            String errorMessage = "유효하지 않은 정보입니다.";
-            String script = "<script>alert('" + errorMessage + "');</script>";
-            request.setAttribute("script", script);
+        	String errorMessage = "로그인 정보가 일치하지 않습니다.";
+            request.setAttribute("errorMessage", errorMessage);
             
             // 경고창을 표시한 후 로그인 페이지로 이동
             return "UserLogin.jsp";
