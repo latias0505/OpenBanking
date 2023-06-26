@@ -1,4 +1,4 @@
-package controller.bank;
+package controller.product;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ProductListGoController implements Controller {
 		
 		if (userName == null) {
             // userName 값이 없으면 로그인 페이지로 리다이렉트
-            return "userlogin.do";
+            return "UserLogin.jsp";
         }
 		
 	    ProductDAO productDAO = new ProductDAO();

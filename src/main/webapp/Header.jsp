@@ -57,7 +57,7 @@ pageEncoding="UTF-8"%>
     </a>
     <% } %>
     <div id="bankItem" style="visibility: hidden" >
-      <a href="   ?  ">&nbsp;계좌</a>
+      <a href="account.do">&nbsp;계좌</a>
       <a>ㅣ</a>
       <a href="productlistgo.do">상품</a>
     </div>

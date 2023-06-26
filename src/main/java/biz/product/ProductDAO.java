@@ -88,7 +88,11 @@ public class ProductDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            // 자원 해제
+        	try {
+        		conn.close();
+        	} catch(Exception e) {
+        		e.printStackTrace();
+        	}
         }
         return productList;
     }

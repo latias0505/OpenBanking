@@ -25,6 +25,8 @@ public class UserLoginController implements Controller {
             HttpSession session = request.getSession();
             session.setAttribute("userName", user.getName());
             session.setAttribute("userAdmin", user.getAdmin());
+            session.setAttribute("userPass", user.getPass());
+            session.setAttribute("userId", user.getId());
             
             return "Main.jsp"; // Main.jsp로 이동합니다.
         } else {

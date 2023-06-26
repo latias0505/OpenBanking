@@ -3,13 +3,17 @@ package controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import controller.bank.ProductDeleteController;
-import controller.bank.ProductInfoController;
-import controller.bank.ProductListGoController;
-import controller.bank.ProductMakeGoController;
-import controller.bank.ProductSaveController;
-import controller.bank.UpdateProductController;
+import controller.account.AccountController;
+import controller.account.AccountDeleteController;
+import controller.account.AccountMakeController;
+import controller.account.AccountSaveController;
 import controller.board.BoardGoController;
+import controller.product.ProductDeleteController;
+import controller.product.ProductInfoController;
+import controller.product.ProductListGoController;
+import controller.product.ProductMakeGoController;
+import controller.product.ProductSaveController;
+import controller.product.UpdateProductController;
 import controller.user.DataChangeController;
 import controller.user.LogoutController;
 import controller.user.MainController;
@@ -39,6 +43,10 @@ public class HandlerMapping {
 		mappings.put("/productinfo.do", new ProductInfoController());
 		mappings.put("/updateproduct.do", new UpdateProductController());
 		mappings.put("/productdelete.do", new ProductDeleteController());
+		mappings.put("/account.do", new AccountController());
+		mappings.put("/accountmake.do", new AccountMakeController());
+		mappings.put("/accountsave.do", new AccountSaveController());
+		mappings.put("/accountdelete.do", new AccountDeleteController());	
 	}
 	public Controller getController(String path) {
 		return mappings.get(path); 

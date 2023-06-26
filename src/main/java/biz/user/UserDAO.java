@@ -15,7 +15,7 @@ public class UserDAO {
     public void updateUser(UserVO user) {
         try {
             conn = JDBCUtil.getConnection();
-            String sql = "UPDATE USERS SET ID = ?, PASSWORD = ?, PHONE = ?, EMAIL = ?, ADDRESS = ?, POSTCODE = ? WHERE NAME = ?";
+            String sql = "UPDATE USER_INFO SET ID = ?, PASSWORD = ?, PHONE = ?, EMAIL = ?, ADDRESS = ?, POSTCODE = ? WHERE NAME = ?";
 
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, user.getId());
@@ -38,7 +38,7 @@ public class UserDAO {
         UserVO user = null;
         try {
             conn = JDBCUtil.getConnection();
-            String sql = "SELECT * FROM USERS WHERE NAME = ?";
+            String sql = "SELECT * FROM USER_INFO WHERE NAME = ?";
 
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, name);
@@ -70,7 +70,7 @@ public class UserDAO {
         UserVO user = null;
         try {
             conn = JDBCUtil.getConnection();
-            String sql = "SELECT * FROM USERS WHERE ID = ?";
+            String sql = "SELECT * FROM USER_INFO WHERE ID = ?";
 
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, id);
@@ -100,7 +100,7 @@ public class UserDAO {
     public void insertUser(UserVO user) {
         try {
             conn = JDBCUtil.getConnection();
-            String sql = "INSERT INTO USERS(id, password, name, usercode, email, phone, postcode, address, userdate, user_type) " +
+            String sql = "INSERT INTO USER_INFO(id, password, name, usercode, email, phone, postcode, address, userdate, user_type) " +
                     "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             stmt = conn.prepareStatement(sql);

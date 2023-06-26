@@ -46,8 +46,14 @@ public class DispatcherServlet extends HttpServlet {
       Controller ctrl = mapping.getController(path);
       String viewPage = ctrl.handleRequest(request, response); //login.html ���Ϲ����� ���������� �Ѿ �װ� �ٽ� rd�� ���� ������ް� login.html�� �����±���
       
+      if(viewPage.startsWith("redirect:")) {
+    	
+    	  response.sendRedirect(request.getContextPath() + viewPage.substring("redirect:".length()));
+    	  
+      } else {
       RequestDispatcher rd = request.getRequestDispatcher(viewPage);
       rd.forward(request, response);
+      }
       
    }
 }
