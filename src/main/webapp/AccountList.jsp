@@ -37,6 +37,10 @@
           form.submit();
         }
       }
+      
+      function showAlert(message) {
+          alert(message);
+        }
     </script>
   </head>
   <body>
@@ -64,7 +68,7 @@
             <td>
               <input type="checkbox" name="selectedAccounts" value="<%= account.getAccNum() %>" />
             </td>
-            <td><%= account.getAcName() %></td>
+            <td><a href="accountinfo.do?accountId=<%= account.getAccNum() %>"><%= account.getAcName() %></a></td>
             <td><%= account.getPdNumber() %></td>
             <td><%= account.getAccNum() %></td>
             <td><%= account.getAcMoney() %></td>
@@ -85,7 +89,16 @@
       </table>
       <button type="submit">선택한 계좌로 이동</button>
     </form>
+    <% if (request.getAttribute("errorMessage") != null) { %>
+      <script>
+        window.onload = function() {
+          showAlert("${errorMessage}");
+        }
+      </script>
+    <% } %>
+    <% if (!accounts.isEmpty()) { %>
     <button type="button" onclick="deleteAccounts()">계좌 삭제</button>
+    <% } %>
     <%@ include file="Footer.jsp" %>
   </body>
 </html>

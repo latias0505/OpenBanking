@@ -14,6 +14,33 @@ public class AccountDAO {
     private PreparedStatement stmt;
     private ResultSet rs;
     
+    public AccountVO getAccountByAccountId(String accountId) {
+        AccountVO account = null;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM ACCOUNT WHERE ACCNUM = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, accountId);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                account = new AccountVO();
+                account.setAccNum(rs.getLong("ACCNUM"));
+                account.setAcName(rs.getString("AC_NAME"));
+                account.setPdNumber(rs.getInt("PD_NUMBER"));
+                account.setAcMoney(rs.getInt("AC_MONEY"));
+                account.setAcOpDate(rs.getDate("AC_OP_DATE"));
+                account.setAcEdDate(rs.getDate("AC_ED_DATE"));
+                account.setState(rs.getString("STATE"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(rs, stmt, conn);
+        }
+        return account;
+    }
+
+    
     public void deleteAccount(long accNum) {
         try {
             conn = JDBCUtil.getConnection();

@@ -5,8 +5,11 @@ import java.util.Map;
 
 import controller.account.AccountController;
 import controller.account.AccountDeleteController;
+import controller.account.AccountInfoController;
 import controller.account.AccountMakeController;
 import controller.account.AccountSaveController;
+import controller.account.MoneySendController;
+import controller.account.MoneySendGoController;
 import controller.board.BoardGoController;
 import controller.product.ProductDeleteController;
 import controller.product.ProductInfoController;
@@ -47,6 +50,9 @@ public class HandlerMapping {
 		mappings.put("/accountmake.do", new AccountMakeController());
 		mappings.put("/accountsave.do", new AccountSaveController());
 		mappings.put("/accountdelete.do", new AccountDeleteController());	
+		mappings.put("/accountinfo.do", new AccountInfoController());
+		mappings.put("/moneysendgo.do", new MoneySendGoController());
+		mappings.put("/moneysend.do", new MoneySendController());
 	}
 	public Controller getController(String path) {
 		return mappings.get(path); 
