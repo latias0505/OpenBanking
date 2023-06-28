@@ -1,6 +1,6 @@
 package biz.ac_record;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Ac_RecordVO {
     private int rcNo;
@@ -8,8 +8,8 @@ public class Ac_RecordVO {
     private String id;
     private String rcType;
     private String rcName;
-    private double rcMoney;
-    private Timestamp rcTime;
+    private long rcMoney;
+    private Date rcTime;
 
     public int getRcNo() {
         return rcNo;
@@ -51,20 +51,20 @@ public class Ac_RecordVO {
         this.rcName = rcName;
     }
 
-    public double getRcMoney() {
+    public long getRcMoney() {
         return rcMoney;
     }
 
-    public void setRcMoney(double rcMoney) {
+    public void setRcMoney(long rcMoney) {
         this.rcMoney = rcMoney;
     }
 
-    public Timestamp getRcTime() {
+    public Date getRcTime() {
         return rcTime;
     }
 
-    public void setRcTime(Timestamp rcTime) {
-    	this.rcTime = new Timestamp(System.currentTimeMillis());
+    public void setRcTime(Date rcTime) {
+    	this.rcTime = rcTime;
     }
     
     @Override
