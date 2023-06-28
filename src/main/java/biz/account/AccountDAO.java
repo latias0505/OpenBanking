@@ -14,6 +14,45 @@ public class AccountDAO {
     private PreparedStatement stmt;
     private ResultSet rs;
     
+    public int withdrawAccountMoney(String accNumInput, long money) {
+        int updatedRows = 0;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "UPDATE ACCOUNT SET AC_MONEY = AC_MONEY - ? WHERE ACCNUM = ?";
+
+            stmt = conn.prepareStatement(sql);
+            stmt.setLong(1, money);
+            stmt.setString(2, accNumInput);
+
+            updatedRows = stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(stmt, conn);
+        }
+        return updatedRows;
+    }
+
+    
+    public int updateAccountMoney(String accNumInput, long money) {
+        int updatedRows = 0;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "UPDATE ACCOUNT SET AC_MONEY = AC_MONEY + ? WHERE ACCNUM = ?";
+
+            stmt = conn.prepareStatement(sql);
+            stmt.setLong(1, money);
+            stmt.setString(2, accNumInput);
+
+            updatedRows = stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(stmt, conn);
+        }
+        return updatedRows;
+    }
+    
     public AccountVO getAccountByAccountId(String accountId) {
         AccountVO account = null;
         try {

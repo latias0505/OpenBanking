@@ -6,11 +6,45 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ac_RecordDAO {
     private Connection conn;      // 데이터베이스 연결을 위한 Connection 객체
     private PreparedStatement stmt;   // SQL 문을 실행하기 위한 PreparedStatement 객체
     private ResultSet rs;      // SQL 쿼리의 결과를 저장하기 위한 ResultSet 객체
+    
+    public List<Ac_RecordVO> getAcRecordsByAccountId(long accountId) {
+        List<Ac_RecordVO> acRecords = new ArrayList<>();
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM AC_RECORD WHERE ACCNUM = ?"; // accountId와 일치하는 ACCNUM 값을 가진 AC_RECORD 정보를 조회하는 SQL 문
+
+            stmt = conn.prepareStatement(sql);
+            stmt.setLong(1, accountId); // 첫 번째 위치 홀더에 accountId 값을 설정
+
+            rs = stmt.executeQuery(); // SQL 문 실행
+
+            while (rs.next()) {
+                Ac_RecordVO acRecord = new Ac_RecordVO();
+                acRecord.setRcNo(rs.getInt("RC_NO"));
+                acRecord.setAccNum(rs.getLong("ACCNUM"));
+                acRecord.setId(rs.getString("ID"));
+                acRecord.setRcType(rs.getString("RC_TYPE"));
+                acRecord.setRcName(rs.getString("RC_NAME"));
+                acRecord.setRcMoney(rs.getLong("RC_MONEY"));
+                acRecord.setRcTime(rs.getDate("RC_TIME"));
+
+                acRecords.add(acRecord);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(rs, stmt, conn);
+        }
+
+        return acRecords;
+    }
 
     // Ac_RecordVO 객체를 받아서 AC_RECORD 테이블에 저장하는 메서드
     public void saveAcRecord(Ac_RecordVO acRecord) {

@@ -30,11 +30,13 @@ pageEncoding="UTF-8"%> <%@ page import="java.util.List" %>
               </tr>
               <% } %>
             </table>
+            <% if (session.getAttribute("userAdmin") != null && session.getAttribute("userAdmin").equals("admin")) { %>
             <input
               type="button"
               value="상품 등록하기"
               onclick="location.href='productmakego.do'"
             />
+            <% } %>
           </div>
         </div>
         <%@ include file="Footer.jsp" %>

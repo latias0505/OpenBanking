@@ -87,7 +87,7 @@
         }
         %>
       </table>
-      <button type="submit">선택한 계좌로 이동</button>
+      <button type="submit">계좌 개설</button>
     </form>
     <% if (request.getAttribute("errorMessage") != null) { %>
       <script>
