@@ -21,6 +21,7 @@ import controller.user.DataChangeController;
 import controller.user.LogoutController;
 import controller.user.MainController;
 import controller.user.MyPageController;
+import controller.user.SignUpCheckController;
 import controller.user.SignUpController;
 import controller.user.SignUpGoController;
 import controller.user.UserLoginController;
@@ -53,6 +54,7 @@ public class HandlerMapping {
 		mappings.put("/accountinfo.do", new AccountInfoController());
 		mappings.put("/moneysendgo.do", new MoneySendGoController());
 		mappings.put("/moneysend.do", new MoneySendController());
+		mappings.put("/signupcheck.do", new SignUpCheckController());
 	}
 	public Controller getController(String path) {
 		return mappings.get(path); 

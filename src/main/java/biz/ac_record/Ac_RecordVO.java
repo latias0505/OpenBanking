@@ -10,6 +10,8 @@ public class Ac_RecordVO {
     private String rcName;
     private long rcMoney;
     private Date rcTime;
+    private long rcNumber;
+    private String rcText;
 
     public int getRcNo() {
         return rcNo;
@@ -67,10 +69,26 @@ public class Ac_RecordVO {
     	this.rcTime = rcTime;
     }
     
-    @Override
+    public long getRcNumber() {
+		return rcNumber;
+	}
+
+	public void setRcNumber(long rcNumber) {
+		this.rcNumber = rcNumber;
+	}
+
+	public String getRcText() {
+		return rcText;
+	}
+
+	public void setRcText(String rcText) {
+		this.rcText = rcText;
+	}
+
+	@Override
     public String toString() {
         return "Ac_RecordVO [rcNo=" + rcNo + ", accNum=" + accNum + ", id=" + id + ", rcType=" + rcType + ", rcName="
-                + rcName + ", rcMoney=" + rcMoney + ", rcTime=" + rcTime + "]";
+                + rcName + ", rcMoney=" + rcMoney + ", rcTime=" + rcTime + ", rcNumber=" + rcNumber + ", rcText=" + rcText + "]";
     }
     
 }

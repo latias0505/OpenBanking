@@ -64,6 +64,7 @@ public class AccountDAO {
             if (rs.next()) {
                 account = new AccountVO();
                 account.setAccNum(rs.getLong("ACCNUM"));
+                account.setId(rs.getString("ID"));
                 account.setAcName(rs.getString("AC_NAME"));
                 account.setPdNumber(rs.getInt("PD_NUMBER"));
                 account.setAcMoney(rs.getInt("AC_MONEY"));

@@ -52,12 +52,24 @@
 	</table>
 		<button type="submit">입금 및 이체</button>
 	</form>
+	<select>
+		<option>선택 안함</option>
+		<option>입금</option>
+		<option>출금</option>
+	</select>
+	<input type="date" name="startdate">
+	<a>~</a>
+	<input type="date" name="enddate">
+	<input type="button" value="검색하기">
 	<table>
         <tr>
-            <th>거래 번호</th>
+        	<th>내 이름</th>
+            <th>내 계좌</th>
             <th>거래 종류</th>
             <th>금액</th>
-            <th>거래 상대</th>
+            <th>상대 이름</th>
+            <th>상대 계좌</th>
+            <th>거래 메모</th>
             <th>이체 날짜</th>
         </tr>
         <%-- AC_RECORD 정보 출력 --%>
@@ -68,16 +80,23 @@
 		    acRecords.sort(Comparator.comparingInt(Ac_RecordVO::getRcNo).reversed());
 		    
 		    for (Ac_RecordVO acRecord : acRecords) {
+		        if (acRecord.getAccNum() == account.getAccNum()) { // accNum 값 비교
 		%>
-        <tr>
-            <td><%= acRecord.getRcNo() %></td>
-            <td><%= acRecord.getRcType() %></td>
-            <td><%= acRecord.getRcMoney() %></td>
-            <td><%= acRecord.getRcName() %></td>
-            <td><%= acRecord.getRcTime() %></td>
-        </tr>
-        <% }
-        } %>
+		    <tr>
+		    	<td><%= session.getAttribute("userName") %></td>
+		        <td><%= acRecord.getAccNum() %></td>
+		        <td><%= acRecord.getRcType() %></td>
+		        <td><%= acRecord.getRcMoney() %></td>
+		        <td><%= acRecord.getRcName() %></td>
+		        <td><%= acRecord.getRcNumber() %></td>
+		        <td><%= acRecord.getRcText() %></td>
+		        <td><%= acRecord.getRcTime() %></td>
+		    </tr>
+		<% 
+		        }
+		    }
+		}
+		%>
     </table>
 </div>
 <%@ include file="Footer.jsp" %>

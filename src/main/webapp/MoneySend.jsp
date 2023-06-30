@@ -28,22 +28,16 @@
       <!-- 이체 양식 -->
       <table>
         <tr>
-          <td>은행 선택</td>
-          <td>
-            <select name="bankCd">
-              <c:forEach items="${bankInfoList}" var="bankInfo">
-                <option value="${bankInfo.bankCd}">${bankInfo.bankName}</option>
-              </c:forEach>
-            </select>
-          </td>
-        </tr>
-        <tr>
           <td>계좌번호 입력</td>
           <td><input type="number" name="accnum" /></td>
         </tr>
         <tr>
           <td>이체 금액</td>
           <td><input type="number" name="money" /></td>
+        </tr>
+        <tr>
+        	<td>계좌이체 메모</td>
+        	<td><input type="text" name="text"></td>
         </tr>
       </table>
       

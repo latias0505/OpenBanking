@@ -115,7 +115,7 @@ pageEncoding="UTF-8"%>
                 name="phone"
                 class="phonebox"
                 placeholder="  휴대폰 번호"
-                value="${user.name}"
+                value="${user.phone}"
               />
             </div>
           </td>

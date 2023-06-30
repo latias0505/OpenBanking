@@ -38,6 +38,7 @@ pageEncoding="UTF-8"%>
     	    event.preventDefault(); // 폼 제출 기본 동작 막기
     	  }
     	}
+      
     </script>
   </head>
   <body>
@@ -65,15 +66,12 @@ pageEncoding="UTF-8"%>
               <a class="signuplabel">아이디</a>
               <input
                 type="text"
+                id="id"
                 name="id"
                 class="idbox"
                 placeholder="  아이디"
               />
-              <input
-                type="button"
-                value="중복확인"
-                onclick="checkDuplicateId()"
-              />
+              <input type="button" value="중복확인" onclick="checkDuplicateId()" />
             </div>
           </td>
         </tr>
@@ -119,17 +117,19 @@ pageEncoding="UTF-8"%>
               <a class="signuplabel">주민등록 번호</a>
               <input
                 type="text"
+                id="usercode1"
                 name="usercode1"
                 class="usercode1"
                 placeholder="  주민번호 앞자리"
               />
               <input
                 type="password"
+                id="usercode2"
                 name="usercode2"
                 class="usercode2"
                 placeholder="  주민번호 뒷자리"
               />
-              <input type="button" value="중복확인" />
+              <input type="button" value="중복확인" onclick="checkDuplicateUserCode()" />
             </div>
           </td>
         </tr>
@@ -145,7 +145,6 @@ pageEncoding="UTF-8"%>
                 class="phonebox"
                 placeholder="  휴대폰 번호"
               />
-              <input type="button" value="중복확인" />
             </div>
           </td>
         </tr>
@@ -184,7 +183,6 @@ pageEncoding="UTF-8"%>
 				    emailBox2.value = selectedOption;
 				  }
 				</script>
-              <input type="button" value="중복확인" />
             </div>
           </td>
         </tr>
@@ -320,6 +318,7 @@ pageEncoding="UTF-8"%>
         </tr>
       </table>
     </form>
+    
     <%@ include file="Footer.jsp" %>
   </body>
 </html>

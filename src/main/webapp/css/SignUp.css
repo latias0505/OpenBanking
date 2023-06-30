@@ -84,7 +84,7 @@ th {
   width: 240px;
 }
 
-input[type="button"]:not(.signupbutton1, .signupbutton2) {
+input[type="button"]:not(.signupbutton1, .signupbutton2 .loginbutton) {
   height: 35px;
   border-radius: 5px;
   border: none;

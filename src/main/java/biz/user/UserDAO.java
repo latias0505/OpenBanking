@@ -12,6 +12,52 @@ public class UserDAO {
     private PreparedStatement stmt;
     private ResultSet rs;
     
+    public boolean checkIfIdExists(String id) {
+        boolean isIdExists = false;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "SELECT COUNT(*) FROM USER_INFO WHERE ID = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, id);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                if (count > 0) {
+                    isIdExists = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(rs, stmt, conn);
+        }
+        return isIdExists;
+    }
+
+    public boolean checkIfUserCodeExists(String usercode) {
+        boolean isUserCodeExists = false;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "SELECT COUNT(*) FROM USER_INFO WHERE USERCODE = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, usercode);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                if (count > 0) {
+                    isUserCodeExists = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(rs, stmt, conn);
+        }
+        return isUserCodeExists;
+    }
+
+
+    
     public void updateUser(UserVO user) {
         try {
             conn = JDBCUtil.getConnection();

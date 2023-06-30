@@ -18,10 +18,12 @@ public class Ac_RecordDAO {
         List<Ac_RecordVO> acRecords = new ArrayList<>();
         try {
             conn = JDBCUtil.getConnection();
-            String sql = "SELECT * FROM AC_RECORD WHERE ACCNUM = ?"; // accountId와 일치하는 ACCNUM 값을 가진 AC_RECORD 정보를 조회하는 SQL 문
+            String sql = "SELECT * FROM AC_RECORD WHERE ACCNUM = ? or RC_NUMBER= ? ";
+ // accountId와 일치하는 ACCNUM 값을 가진 AC_RECORD 정보를 조회하는 SQL 문
 
             stmt = conn.prepareStatement(sql);
             stmt.setLong(1, accountId); // 첫 번째 위치 홀더에 accountId 값을 설정
+            stmt.setLong(2, accountId);
 
             rs = stmt.executeQuery(); // SQL 문 실행
 
@@ -31,8 +33,10 @@ public class Ac_RecordDAO {
                 acRecord.setAccNum(rs.getLong("ACCNUM"));
                 acRecord.setId(rs.getString("ID"));
                 acRecord.setRcType(rs.getString("RC_TYPE"));
-                acRecord.setRcName(rs.getString("RC_NAME"));
+                acRecord.setRcNumber(rs.getLong("RC_NUMBER"));
                 acRecord.setRcMoney(rs.getLong("RC_MONEY"));
+                acRecord.setRcName(rs.getString("RC_NAME"));
+                acRecord.setRcText(rs.getString("RC_TEXT"));
                 acRecord.setRcTime(rs.getDate("RC_TIME"));
 
                 acRecords.add(acRecord);
@@ -50,16 +54,18 @@ public class Ac_RecordDAO {
     public void saveAcRecord(Ac_RecordVO acRecord) {
         try {
             conn = JDBCUtil.getConnection();   // 데이터베이스 연결을 가져옴
-            String sql = "INSERT INTO AC_RECORD (RC_NO, ACCNUM, ID, RC_TYPE, RC_NAME, RC_MONEY, RC_TIME) " +
-                         "VALUES ((SELECT NVL(MAX(RC_NO),0)+1 FROM AC_RECORD), ?, ?, ?, ?, ?, sysdate) ";   // INSERT 문을 정의
+            String sql = "INSERT INTO AC_RECORD (RC_NO, ACCNUM, ID, RC_TYPE, RC_NUMBER, RC_MONEY, RC_NAME, RC_TEXT, RC_TIME) " +
+                         "VALUES ((SELECT NVL(MAX(RC_NO),0)+1 FROM AC_RECORD), ?, ?, ?, ?, ?, ?, ?, sysdate) ";   // INSERT 문을 정의
             
             int loc = 1;
             stmt = conn.prepareStatement(sql);   // PreparedStatement 객체 생성
             stmt.setLong(loc++, acRecord.getAccNum());   // 2번 위치 홀더에 AccNum 값을 설정
             stmt.setString(loc++, acRecord.getId());     // 3번 위치 홀더에 ID 값을 설정
             stmt.setString(loc++, acRecord.getRcType());     // 4번 위치 홀더에 RcType 값을 설정
-            stmt.setString(loc++, acRecord.getRcName());     // 5번 위치 홀더에 RcName 값을 설정
+            stmt.setLong(loc++, acRecord.getRcNumber());     // 5번 위치 홀더에 RcName 값을 설정
             stmt.setLong(loc++, acRecord.getRcMoney());     // 6번 위치 홀더에 RcMoney 값을 설정
+            stmt.setString(loc++, acRecord.getRcName());
+            stmt.setString(loc++, acRecord.getRcText());
 
             stmt.executeUpdate();   // SQL 문 실행
         } catch (SQLException e) {
