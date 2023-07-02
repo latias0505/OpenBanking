@@ -1,0 +1,71 @@
+.accountbody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 1000px;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  margin: 0;
+  width: 200px;
+}
+
+table {
+  width: 1000px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: rgb(47, 87, 170);
+  font-weight: bold;
+  color: white;
+  height: 40px;
+  font-size: 20px;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: rgb(121, 136, 223);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.message {
+  text-align: center;
+  margin: 10px 0;
+  color: red;
+  font-weight: bold;
+}

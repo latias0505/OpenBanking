@@ -43,6 +43,7 @@ public class MoneySendController implements Controller {
                 acRecord.setRcNumber(Long.parseLong(accNumInput));
                 acRecord.setRcMoney(Long.parseLong(money));
                 acRecord.setRcText(memo);
+                acRecord.setRcName(name.getName());
 
                 acRecordDAO.saveAcRecord(acRecord); // Ac_RecordVO 객체를 AC_RECORD 테이블에 저장합니다.
 

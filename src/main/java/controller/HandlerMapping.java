@@ -8,6 +8,7 @@ import controller.account.AccountDeleteController;
 import controller.account.AccountInfoController;
 import controller.account.AccountMakeController;
 import controller.account.AccountSaveController;
+import controller.account.AnotherAcController;
 import controller.account.MoneySendController;
 import controller.account.MoneySendGoController;
 import controller.board.BoardGoController;
@@ -55,6 +56,7 @@ public class HandlerMapping {
 		mappings.put("/moneysendgo.do", new MoneySendGoController());
 		mappings.put("/moneysend.do", new MoneySendController());
 		mappings.put("/signupcheck.do", new SignUpCheckController());
+		mappings.put("/anotherac.do", new AnotherAcController());
 	}
 	public Controller getController(String path) {
 		return mappings.get(path); 
