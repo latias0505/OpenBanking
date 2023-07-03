@@ -19,6 +19,7 @@
 <div class="accountcontainer">
 <h1><%= session.getAttribute("userName") %>님의 계좌 정보</h1>
 <form action="moneysendgo.do" class="infoform" method="post">
+<div>
 	<table>
 		<tr>
 			<th>계좌 이름</th>
@@ -51,8 +52,10 @@
 		}
 		%>
 	</table>
+	</div>
+	<br>
+	<button class="sendbutton" type="submit">입금 및 이체</button>
 </form>
-<button class="sendbutton" type="submit">입금 및 이체</button>
 </div>
 </div>
 <select>
