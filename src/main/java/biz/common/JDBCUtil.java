@@ -11,7 +11,7 @@ public class JDBCUtil {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:XE";
-			return DriverManager.getConnection(url, "c##hr2", "hr2");
+			return DriverManager.getConnection(url, "hr", "hr");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

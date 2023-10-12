@@ -1,0 +1,61 @@
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+table th {
+	background-color: rgb(121, 136, 223);
+	color: white;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.maintitle {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.accountcontainer {
+	border: 1px solid #ddd;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 5px;
+	margin-bottom: 60px;
+}
+
+.buttoncontainer {
+	margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.send {
+	margin-right: 40px;
+	border: none;
+	width: 100px;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 20px;
+	color: white;
+	background-color: rgb(121, 136, 223);
+}
+
+.back {
+	border: none;
+	width: 100px;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 20px;
+	color: white;
+	background-color: rgb(121, 136, 223);
+}

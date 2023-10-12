@@ -19,6 +19,7 @@ import controller.product.ProductMakeGoController;
 import controller.product.ProductSaveController;
 import controller.product.UpdateProductController;
 import controller.user.DataChangeController;
+import controller.user.GameController;
 import controller.user.LogoutController;
 import controller.user.MainController;
 import controller.user.MyPageController;
@@ -57,6 +58,7 @@ public class HandlerMapping {
 		mappings.put("/moneysend.do", new MoneySendController());
 		mappings.put("/signupcheck.do", new SignUpCheckController());
 		mappings.put("/anotherac.do", new AnotherAcController());
+		mappings.put("/gamego.do", new GameController());
 	}
 	public Controller getController(String path) {
 		return mappings.get(path); 

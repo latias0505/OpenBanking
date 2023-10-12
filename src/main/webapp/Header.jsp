@@ -40,6 +40,7 @@ pageEncoding="UTF-8"%>
 			 <% } %>
 		</li>
 		<li><a href="boardgo.do">은행 게시판</a></li>
+		<li><a href="gamego.do">게임</a></li>
 	   </ul>
     </div>
     <% String userName = (String) session.getAttribute("userName"); %> <% if

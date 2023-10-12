@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.game-text {
+  display: flex;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 250px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.7);
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  font-size: 50px;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.game-text span {
+  margin-bottom: 100px;
+}
+
+.game-text > button {
+  position: absolute;
+  padding: 0.5rem 1.35rem;
+  top: 50%;
+  left: 30%;
+  color: #fff;
+  background: salmon;
+  border: none;
+  cursor: pointer;
+}
+
+.container3 {
+  border: 3px white solid;
+  width: 260px;
+  position: absolute;
+  height: 170px;
+  border-radius: 5px;
+  align-items: center;
+  margin-top: 320px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.365);
+}
+
+.guide {
+  text-align: center;
+  font-size: 30px;
+  color: gold;
+}
+
+.guide-1 {
+  text-align: center;
+  margin-left: -130px;
+  color: white;
+  margin-top: -20px;
+  margin-left: 4px;
+}
+
+.play {
+  margin-left: -15px;
+}
+
+.score-text {
+  font-size: 25px;
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: gold;
+}
+
+.score {
+  font-size: 30px;
+  position: absolute;
+  top: -13%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+
+.container2 {
+  border: 3px white solid;
+  position: absolute;
+  z-index: -1;
+  transform: translate(-109px, 0%);
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  left: 390px;
+}
+
+.highscore {
+  font-size: 20px;
+  position: absolute;
+  z-index: -1;
+  left: 91px;
+  width: 100%;
+  transform: translate(-94px, 0%);
+  border: 3px white solid;
+  border-radius: 5px;
+  width: 100px;
+  background-color: white;
+  text-align: center;
+  height: 57px;
+}
+
+.highscores {
+  font-size: 25px;
+  position: absolute;
+  top: 60px;
+  left: 52px;
+  transform: translateX(-50%);
+  color: white;
+}
+.container1 {
+  border: 3px white solid;
+  position: absolute;
+  z-index: -1;
+  transform: translate(-109px, 0%);
+  width: 85px;
+  height: 90px;
+  border-radius: 5px;
+  left: -10px;
+}
+.level {
+  font-size: 20px;
+  position: absolute;
+  z-index: -1;
+  left: 107px;
+  transform: translate(-109px, 0%);
+  border: 3px white solid;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  width: 85px;
+}
+.levels {
+  font-size: 25px;
+  position: absolute;
+  z-index: -1;
+  margin-right: -48px;
+  right: calc(100% + -18px);
+  color: white;
+  top: 39px;
+  left: 6px;
+}
+
+.backcolor {
+  position: absolute;
+  z-index: -1;
+  width: 250px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+}
+
+.backborder {
+  position: absolute;
+  z-index: -2;
+  width: 275px;
+  height: 525px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  border-radius: 20px;
+}
+
+.playground {
+  position: relative;
+  z-index: 1;
+}
+
+/* playground 안에 있는 ul에 스타일 값을 주겠다는 의미 */
+.playground > ul {
+  border: 1px solid #333;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.playground > ul > li {
+  width: 100%;
+  height: 25px;
+}
+
+.playground > ul > li > ul {
+  display: flex;
+}
+
+/* 테트리스에 들어갈 네모칸 한개 */
+.playground > ul > li > ul > li {
+  width: 25px;
+  height: 25px;
+  outline: 1px solid #cccccc6c;
+}
+
+.Tmino {
+  background: #a29fa0;
+}
+.Imino {
+  background: #db5a5a;
+}
+.Omino {
+  background: #fdf374;
+}
+.Zmino {
+  background: #bbd776;
+}
+.Smino {
+  background-color: #9488e6;
+}
+.Lmino {
+  background: #90d6f6;
+}
+.Jmino {
+  background: #fbbc71;
+}
+
+.start-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 250px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.7);
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+}
+
+.start-text {
+  text-align: center;
+  color: #fff;
+}
+
+.start-text h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.start-text p {
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+.start-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background: salmon;
+  border: none;
+  cursor: pointer;
+}
+
+.backimg {
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  position: absolute;
+  top: 0px;
+}

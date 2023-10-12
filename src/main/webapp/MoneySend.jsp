@@ -6,10 +6,15 @@
     <meta charset="UTF-8" />
     <%@ include file="Header.jsp" %>
     <title>Insert title here</title>
-    <link rel="stylesheet" type="text/css" href="css/Main.css" />
+    <link rel="stylesheet" type="text/css" href="css/MoneySend.css" />
   </head>
   <body>
     <form action="moneysend.do" method="POST">
+    
+    <div class="accountcontainer">
+    	<div class="maintitle">
+    		<a>계좌 정보</a>
+    	</div>
       <!-- 계좌 정보 테이블 -->
       <table>
         <tr>
@@ -23,6 +28,7 @@
           <td><c:out value="${acMoney}" /></td>
         </tr>
       </table>
+      </div>
       
       <h1>계좌 이체</h1>
       <!-- 이체 양식 -->
@@ -43,8 +49,10 @@
       
       <!-- 이체 버튼과 뒤로가기 버튼 -->
       <input type="hidden" name="accNumber" value="${accNumber}" />
-      <input type="submit" value="이체하기">
-      <input type="button" value="뒤로가기">
+      <div class="buttoncontainer">
+      <input type="submit" value="이체하기" class="send">
+      <input type="button" value="뒤로가기" class="back">
+      </div>
     </form>    
     <%@ include file="Footer.jsp" %>
   </body>
